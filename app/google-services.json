@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "792133237346",
+    "project_id": "casaiejercicio",
+    "storage_bucket": "casaiejercicio.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792133237346:android:1ba45abfd8b8856dd6af3b",
+        "android_client_info": {
+          "package_name": "casai.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "792133237346-6ts7kqhjl4vi21qpj49ja6pi53hkqnt3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaHaQ-HeXmCKlRCZsMeshRpy6PZy1zuD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "792133237346-6ts7kqhjl4vi21qpj49ja6pi53hkqnt3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792133237346:android:e87009cd86e7009cd6af3b",
+        "android_client_info": {
+          "package_name": "com.example.loginscreen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "792133237346-6ts7kqhjl4vi21qpj49ja6pi53hkqnt3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaHaQ-HeXmCKlRCZsMeshRpy6PZy1zuD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "792133237346-6ts7kqhjl4vi21qpj49ja6pi53hkqnt3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
