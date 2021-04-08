@@ -2,7 +2,7 @@ package com.example.loginscreen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -19,6 +19,7 @@ import android.location.LocationManager
 import android.os.Looper
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -38,31 +39,27 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        //findViewById<EditText>(R.id.editTextUsuario).editableText?.text("casai_usuario1@gmail.com")
-        //findViewById<EditText>(R.id.editTextContrasena).text("usuariocasai")
-
-
     }
 
     fun loginEmail(v: View){
         val usuario = findViewById<EditText>(R.id.editTextUsuario).text.toString()
         val contrasena = findViewById<EditText>(R.id.editTextContrasena).text.toString()
-        Log.e("Login","Usuario: $usuario  |  Contraseña: $contrasena")
+        //Log.e("Login","Usuario: $usuario  |  Contraseña: $contrasena")
 
         if (usuario.isNotEmpty() || contrasena.isNotEmpty()){
             FirebaseAuth.getInstance().signInWithEmailAndPassword(usuario,contrasena).addOnCompleteListener{ task ->
                 if(task.isSuccessful){
-                    Log.d("Login","Success!")
+          //          Log.d("Login","Success!")
                     Toast.makeText(this, "Success!", Toast.LENGTH_LONG).show()
                     fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-                    Log.e("Login:","Permission: " + CheckPermission().toString())
-                    Log.e("Login:","Location Enable: " + isLocationEnabled().toString())
+         //           Log.e("Login:","Permission: " + CheckPermission().toString())
+           //         Log.e("Login:","Location Enable: " + isLocationEnabled().toString())
                     RequestPermission()
                     getLastLocation()
                 }
                 else{
-                    //TODO MOSTRAR TOAST DE ERROR EN EL LOGIN
-                    Log.e("Login","Error!")
+
+             //       Log.e("Login","Error!")
                     Toast.makeText(this, "Error!", Toast.LENGTH_LONG).show()
                 }
             }
@@ -86,9 +83,11 @@ class MainActivity : AppCompatActivity() {
                         val cadena = "You Current Location is \nLat: "+ x + "\nLon: " + y +"\n" + city
                         //textViewGeo.text = cadena
 
-                        Log.d("1Debug:" ,"Your Lat:"+ x)
+                        /*Log.d("1Debug:" ,"Your Lat:"+ x)
                         Log.d("1Debug:" ,"Your Lon:"+ y)
                         Log.d("1Debug:" ,"Your City:"+ city)
+                        */
+
                         val intent = Intent(this, MyNewsFeed::class.java)
                         intent.putExtra("latitud", x.toString())
                         intent.putExtra("longitud", y.toString())
@@ -177,7 +176,7 @@ class MainActivity : AppCompatActivity() {
     ) {
         if(requestCode == PERMISSION_ID){
             if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                Log.d("Debug:","You have the Permission")
+                //Log.d("Debug:","You have the Permission")
             }
         }
     }

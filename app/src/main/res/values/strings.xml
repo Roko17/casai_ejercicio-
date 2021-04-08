@@ -5,6 +5,6 @@
     <string name="login_password">password</string>
     <string name="login_button">Login</string>
     <string name="login_signup">Sign up</string>
-    <string name="my_location">Location</string>
-    <string name="international">Internacional</string>
+    <string name="my_location">My Location</string>
+    <string name="international">U.S.A. News</string>
 </resources>

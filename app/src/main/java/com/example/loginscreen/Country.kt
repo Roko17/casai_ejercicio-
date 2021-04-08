@@ -1,4 +1,4 @@
-package com.example.loginscree
+package com.example.loginscreen
 
 
     import com.google.gson.annotations.SerializedName
