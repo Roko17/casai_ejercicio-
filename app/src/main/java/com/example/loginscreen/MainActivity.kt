@@ -9,7 +9,9 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
@@ -18,7 +20,7 @@ import android.os.Looper
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
 import java.util.*
-
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,9 +30,27 @@ class MainActivity : AppCompatActivity() {
     lateinit var locationRequest: LocationRequest
     val PERMISSION_ID = 1010
 
+    //var personas:ArrayList<Persona>? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        //findViewById<EditText>(R.id.editTextUsuario).editableText?.text("casai_usuario1@gmail.com")
+        //findViewById<EditText>(R.id.editTextContrasena).text("usuariocasai")
+
+
+        /*personas = ArrayList()
+        personas?.add(Persona("roko1", R.drawable.basketball))
+        personas?.add(Persona("roko2", R.drawable.slipknot))
+        personas?.add(Persona("roko3", R.drawable.lamb))
+        personas?.add(Persona("roko4", R.drawable.basketball))
+        personas?.add(Persona("roko5", R.drawable.slipknot))
+        personas?.add(Persona("roko6", R.drawable.lamb))
+        personas?.add(Persona("roko7", R.drawable.basketball))*/
+
     }
 
     fun loginEmail(v: View){
@@ -69,15 +89,19 @@ class MainActivity : AppCompatActivity() {
                     if(location == null){
                         NewLocationData()
                     }else{
-                        val x = location.latitude.toString()
-                        val y = location.longitude.toString()
+                        val x = location.latitude
+                        val y = location.longitude
                         val city = getCityName(location.latitude,location.longitude)
                         val cadena = "You Current Location is \nLat: "+ x + "\nLon: " + y +"\n" + city
                         //textViewGeo.text = cadena
 
-                        Log.d("Debug:" ,"Your Lat:"+ x)
-                        Log.d("Debug:" ,"Your Lon:"+ y)
-                        Log.d("Debug:" ,"Your City:"+ city)
+                        Log.d("1Debug:" ,"Your Lat:"+ x)
+                        Log.d("1Debug:" ,"Your Lon:"+ y)
+                        Log.d("1Debug:" ,"Your City:"+ city)
+                        val intent = Intent(this, MyNewsFeed::class.java)
+                        intent.putExtra("latitud", x.toString())
+                        intent.putExtra("longitud", y.toString())
+                        startActivity(intent)
                     }
                 }
             }else{
@@ -114,11 +138,11 @@ class MainActivity : AppCompatActivity() {
             val city = getCityName(lastLocation.latitude,lastLocation.longitude)
             val cadena = "You Last Location is \nLat: "+ x + "\nLon: " + y +"\n" + city
 
-            Log.d("Debug:" ,"Your last Lat:"+ x)
-            Log.d("Debug:" ,"Your last Lon:"+ y)
-            Log.d("Debug:" ,"Your last City:"+ city)
+            //Log.d("Debug:" ,"Your last Lat:"+ x)
+            //Log.d("Debug:" ,"Your last Lon:"+ y)
+            //Log.d("Debug:" ,"Your last City:"+ city)
 
-            Log.d("Debug:","your last last location: " + lastLocation.longitude.toString())
+            //Log.d("Debug:","your last last location: " + lastLocation.longitude.toString())
             //textViewGeo.text = cadena
         }
     }
@@ -175,7 +199,7 @@ class MainActivity : AppCompatActivity() {
 
         cityName = Adress.get(0).locality
         countryName = Adress.get(0).countryName
-        Log.d("Debug:","Your City: " + cityName + "\nYour Country " + countryName)
+        //Log.d("Debug:","Your City: " + cityName + "\nYour Country " + countryName)
         return cityName
     }
 }
