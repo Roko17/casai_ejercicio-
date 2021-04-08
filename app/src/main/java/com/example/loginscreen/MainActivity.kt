@@ -42,15 +42,6 @@ class MainActivity : AppCompatActivity() {
         //findViewById<EditText>(R.id.editTextContrasena).text("usuariocasai")
 
 
-        /*personas = ArrayList()
-        personas?.add(Persona("roko1", R.drawable.basketball))
-        personas?.add(Persona("roko2", R.drawable.slipknot))
-        personas?.add(Persona("roko3", R.drawable.lamb))
-        personas?.add(Persona("roko4", R.drawable.basketball))
-        personas?.add(Persona("roko5", R.drawable.slipknot))
-        personas?.add(Persona("roko6", R.drawable.lamb))
-        personas?.add(Persona("roko7", R.drawable.basketball))*/
-
     }
 
     fun loginEmail(v: View){
